@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title></title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+  
+
+  
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">COVID19 Safe Index</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">Safety Index</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Spread Map</a>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1>Are you safe enough from COVID19</h1>
+      <p class="lead">COVID19 can spread though various hundreds of intrinsic and extrensic factors. Based on your current location, know how safe you are based on an index which is generated from hundreds of factors.</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Safety Index</h2>
+          
+          <form method = "POST">
+            <select name="loc">
+            {% for i in arr %}
+                <option value="{{i}}" SELECTED>{{i}}</option>"
+            {% endfor %}
+            
+        </select>
+         
+        <input type="submit" value = "Check">
+        </form>
+
+          <br><br>
+            
+
+            
+        
+
+          
+          {% if data == "Very Bad Situation"%}
+            <div class = "card text-white bg-danger mb-3"  style="max-width: 18rem;">
+          {% elif data == "Sitution is moderatly controlled"%}
+            <div class = "card text-white bg-warning mb-3"  style="max-width: 18rem;">
+          {% elif data == "Situation is under control by the govt"%}
+            <div class = "card text-white bg-success mb-3"  style="max-width: 18rem;">           
+          {% endif %} 
+        <div class="card-header">Index Score : {{f}}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{data}}</h5>
+          <p class="card-text">{{desc}}</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Spread Map</h2>
+          <p class="lead">Functionality will be available soon</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">covidsafeindex@2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="static/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>
